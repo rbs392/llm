@@ -1,0 +1,7 @@
+wheel
+transformers[deepspeed]
+datasets
+accelerate
+torch
+mpi4py
+tensorboardX
