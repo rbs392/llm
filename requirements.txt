@@ -5,6 +5,6 @@ tensorboardX
 accelerate>=0.16.0,<1
 datasets>=2.10.0,<3
 deepspeed>=0.8.3,<0.9
-transformers[torch]>=4.28.1,<5
+transformers[deepspeed]>=4.28.1,<5
 langchain>=0.0.139
 torch>=1.13.1,<2
