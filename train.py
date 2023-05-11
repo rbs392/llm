@@ -1,7 +1,11 @@
+import os
 from functools import partial
 from const import END_KEY, INSTRUCTION_KEY, RESPONSE_KEY_NL, PROMPT_WITH_INPUT_FORMAT, PROMPT_NO_INPUT_FORMAT, RESPONSE_KEY_NL
 from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
+
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 model_name = "EleutherAI/pythia-2.8b"
 cache_dir="bala_llm/models"
@@ -61,11 +65,11 @@ output_dir = "trained_model"
 
 training_args = TrainingArguments(
         output_dir=output_dir,
-        per_device_train_batch_size=1,
-        per_device_eval_batch_size=1,
+        per_device_train_batch_size=3,
+        per_device_eval_batch_size=3,
         fp16=False,
         bf16=True,
-        learning_rate=5e-4,
+        learning_rate=5e-8,
         num_train_epochs=0.05,
         deepspeed="config.json",
         gradient_checkpointing=False,
