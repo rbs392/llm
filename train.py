@@ -50,7 +50,7 @@ _preprocessing_function = partial(preprocess_batch, max_length=max_length, token
 remove_columns=["instruction", "context", "response", "text", "category"]
 
 dataset = (
-    load_dataset("./data")["train"]
+    load_dataset("json", data_files="data/data.jsonl")["train"]
         .map(format_record)
         .map(_preprocessing_function, batched=True, remove_columns=remove_columns)
         .filter(lambda rec: len(rec["input_ids"]) < max_length)
