@@ -20,11 +20,11 @@ nvidia-smi
 # install mpi specific libs
 sudo apt install libopenmpi-dev
 # install torch with cuda 11.7
-pip install torch==1.13.1+cu118 torchvision==0.14.1+cu118 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu118
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
 pip install -r requirements.txt
 
 # run training
-deepspeed --num_gpus=2 train.py --config config.json
+deepspeed --num_gpus=4 train.py --config config.json
 
 # to check GPU usage
 watch -n1 nvidia-smi
